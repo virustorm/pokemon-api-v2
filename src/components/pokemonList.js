@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-export default function pokemonList(props) {
-	console.log(props.props.pokemons);
+export default class pokemonList extends Component {
+	constructor(props) {
+		super(props);
+	}
 
-	const pokemonMap =
-		props.props.pokemons &&
-		props.props.pokemons.map((data) => {
-			return (
-				<div>
-					<h1>{data.name}</h1>
-				</div>
-			);
-		});
+	// pokemonList = () => {
+	//     for (i=0;i<152;i++) {
+	//         axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`).then((res)=>{
+	//             console.log(res)
+	//         })
+	//     }
+	// }
 
-	return <div>{pokemonMap}</div>;
+	render() {
+		console.log(this.props.props);
+
+		return <div>fe</div>;
+	}
 }
