@@ -15,8 +15,20 @@ export default class pokemonList extends Component {
 	// }
 
 	render() {
-		console.log(this.props.props);
+		// console.log(this.props.props);
+		const pokeList =
+			this.props.props.pokemonType &&
+			this.props.props.pokemonType.map((data, index) => {
+				// console.log(data);
+				if (data.type2) {
+					console.log('type2');
+				}
+				if (data.type) {
+					console.log('type');
+				}
+				return <div key={index}>{data.type}</div>;
+			});
 
-		return <div>fe</div>;
+		return <div>{pokeList}</div>;
 	}
 }
