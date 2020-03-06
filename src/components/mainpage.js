@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PokemonList from './pokemonList';
 
+const pokemonAmount = 10;
+
 export default class mainpage extends Component {
 	constructor(props) {
 		super(props);
@@ -12,10 +14,10 @@ export default class mainpage extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=151').then((res) => {
+		axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${pokemonAmount}`).then((res) => {
 			this.setState({ pokemons: res.data.results });
 		});
-		for (let i = 1; i < 152; i++) {
+		for (let i = 1; i < 11; i++) {
 			axios.get(`https://pokeapi.co/api/v2/pokemon/${i}/`).then((res) => {
 				if (res.data.types.length > 1) {
 					var typeArr = [ res.data.types[0].type.name, res.data.types[1].type.name ];
